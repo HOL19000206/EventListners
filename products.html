@@ -23,7 +23,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <button type="button" class="btn btn-outline-success open-cart">Cart</button>
+          <button type="button" class="btn btn-outline-success" id="cart-btn">Cart</button>
         </div>
       </nav>
     <body>
@@ -42,7 +42,7 @@
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <div class="d-grid gap-2 col-6 mx-auto">
                         <button id= "0" class="btn btn-outline-primary more-info" type="button">Learn More</button>
-                        <button class="btn btn-primary" type="button">Button</button>
+                        <button id= "0" class="btn btn-primary cart-btn" type="button">Add to Cart</button>
                       </div>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <div class="d-grid gap-2 col-6 mx-auto">
                         <button id= "1" class="btn btn-outline-primary more-info" type="button">Learn More</button>
-                        <button class="btn btn-primary" type="button">Button</button>
+                        <button id = "1"class="btn btn-primary cart-btn" type="button">Add to Cart</button>
                       </div>
                     </div>
                   </div>
@@ -68,7 +68,7 @@
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <div class="d-grid gap-2 col-6 mx-auto">
                         <button  id = "2" class="btn btn-outline-primary more-info" type="button">Learn More</button>
-                        <button class="btn btn-primary" type="button">Button</button>   
+                        <button id = "2" class="btn btn-primary cart-btn" type="button">Add to Cart</button>   
                       </div>
                     </div>
                   </div>
@@ -95,20 +95,30 @@
               </div>
             </div>
           </div>
-          <!-- cat modal -->
-          <div class="modal" tabindex="-1" id = "cart-info">
+          <!-- cart modal -->
+          <div class="modal" tabindex="-1" id = "cart-modal">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Cart</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  <p id = "cart-data">Modal body text goes here.</p> 
+                <div class="modal-body" id="cart-body">
+                  
+                  <div class = "row my-1">
+                    <div class = "col-2"><img class= "w-100" src="img/shoe1.jpg"></div>
+                    <div class = "col-4"> Shoe 1</div>
+                    <div class = "col-2"><input class="w-100" type="number" placeholder="1"></div>
+                    <div class = "col-2">£49</div>
+                    <div class = "col-2"><div class="btn btn-danger">X</div>
+                  </div>
+                 
+
+
+
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Checkout</button>
+                  <button type="button" class="btn d-block w-100 btn-success">Checkout!</button>
                 </div>
               </div>
             </div>
