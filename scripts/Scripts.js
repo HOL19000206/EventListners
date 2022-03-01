@@ -49,23 +49,34 @@ const products = [
     }
 ]
 
-let cart = [1]
+let cart = []
 
 //add to cart function when buying products
-function AddToCart(){
+function AddToCart(id){
+    alert(`Added ${products[id].title} to cart!`);
+    cart.push(products[id])
+    console.log(cart);
 
 }
 //Update the cart
 function UpdateCart(){
     cartHTML = "";
-    //add item html to cart
-    cartHTML+=  `<div class = "row my-1">
-    <div class = "col-2"><img class= "w-100" src="img/shoe1.jpg"></div>
-    <div class = "col-4"> Shoe 1</div>
+    cartTotal = 0;
+    cart.forEach(product=>{
+        cartTotal += product.price;
+        cartHTML+=`
+        <div class = "row my-1">
+    <div class = "col-2"><img class= "w-100" src="${product.img}"></div>
+    <div class = "col-4">${product.title}</div>
     <div class = "col-2"><input class="w-100" type="number" placeholder="1"></div>
-    <div class = "col-2">£49</div>
-    <div class = "col-2"><div class="btn btn-danger">X</div>
-  </div>`
+    <div class = "col-2">${product.price}</div>
+    <div class = "col-2"><div class="btn btn-danger">X</div></div>
+    </div>`
+        
+        
+    })
+
+    cartHTML +=`<div class="row"><div class="col-12"> Total £${cartTotal.toFixed(2)}</div></div>`;
 
   return cartHTML;
 }
@@ -89,6 +100,9 @@ document.getElementById("info-btn").addEventListener("click", function(e){
 //var items = document.getElementsByClassName(more-info);
 var items = document.querySelectorAll(".more-info");
 console.log(items);
+
+const addToCartBtns = document.querySelectorAll(".cart-btn")
+console.log(items);
 //attatch event listener to every button found with the more-info class
 items.forEach(item =>{
     item.addEventListener("click", function(e){
@@ -98,7 +112,11 @@ items.forEach(item =>{
     })
 });
 
-
+addToCartBtns.forEach(cartBtn =>{
+    cartBtn.addEventListener("click", function(e){
+        AddToCart(e.target.id)
+    })
+});
 
 
 
@@ -112,5 +130,5 @@ document.getElementById("cart-btn").addEventListener("click", function(){
         document.getElementById('cart-body').innerHTML=htmlData;
     }
     cartModal.show();
-})
+});
 

@@ -11,6 +11,14 @@ h1{
     text-align: center;
 }
 
+h4{
+    text-align: center;
+}
+
 .container{
     padding-left: 20vh;
+}
+
+.error{
+    color: red;
 }
